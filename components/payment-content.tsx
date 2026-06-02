@@ -97,6 +97,135 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
   })
 
   useEffect(() => {
+    // Initialize withdrawal history on mount
+    if (withdrawalHistory.length === 0) {
+      const initialHistory: WithdrawalDetails[] = [
+        {
+          id: "w-1",
+          date: "12 Oct 2025",
+          method: "Payoneer",
+          amount: "$413.00",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-2",
+          date: "25 Oct 2025",
+          method: "Payoneer",
+          amount: "$310.22",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-3",
+          date: "12 Nov 2025",
+          method: "Payoneer",
+          amount: "$350.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-4",
+          date: "25 Nov 2025",
+          method: "Payoneer",
+          amount: "$410.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-5",
+          date: "12 Dec 2025",
+          method: "Payoneer",
+          amount: "$451.22",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-6",
+          date: "25 Dec 2025",
+          method: "Payoneer",
+          amount: "$498.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-7",
+          date: "12 Jan 2026",
+          method: "Payoneer",
+          amount: "$743.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-8",
+          date: "25 Jan 2026",
+          method: "Payoneer",
+          amount: "$755.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-9",
+          date: "12 Feb 2026",
+          method: "Payoneer",
+          amount: "$1,002.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-10",
+          date: "25 Feb 2026",
+          method: "Payoneer",
+          amount: "$340.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-11",
+          date: "12 Mar 2026",
+          method: "Payoneer",
+          amount: "$1,234.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-12",
+          date: "25 Mar 2026",
+          method: "Payoneer",
+          amount: "$980.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-13",
+          date: "12 Apr 2026",
+          method: "Payoneer",
+          amount: "$1,320.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-14",
+          date: "25 Apr 2026",
+          method: "Payoneer",
+          amount: "$1,123.33",
+          status: "Completed" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+        {
+          id: "w-15",
+          date: "14 May 2026",
+          method: "Payoneer",
+          amount: "$9,757.78",
+          status: "Pending" as const,
+          details: "abdul.rehman.soashraf@gmail.com",
+        },
+      ]
+      setWithdrawalHistory(initialHistory)
+    }
+  }, [])
+
+  useEffect(() => {
     const checkPendingWithdrawals = () => {
       const now = new Date()
       const updatedHistory = withdrawalHistory.map((withdrawal) => {
@@ -123,8 +252,6 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       const hasChanges = updatedHistory.some((w, i) => w.status !== withdrawalHistory[i].status)
       if (hasChanges) {
         setWithdrawalHistory(updatedHistory)
-        // System notification (no UI change, just console log)
-        console.log("[v0] Your Payoneer withdrawal has been completed successfully.")
       }
     }
 
