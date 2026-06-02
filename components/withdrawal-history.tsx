@@ -122,10 +122,10 @@ export function WithdrawalHistory() {
     },
     {
       date: "14 May 2026",
-      method: "Payoneer",
+      method: "Crypto (TRC20)",
       amount: 9757.78,
       status: "scheduled",
-      details: "abdul.rehman.soashraf@gmail.com",
+      details: "TRC20 Wallet Address",
       isVerified: true,
     },
   ]
