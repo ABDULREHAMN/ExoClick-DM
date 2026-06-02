@@ -215,10 +215,10 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
         {
           id: "w-15",
           date: "14 May 2026",
-          method: "Payoneer",
+          method: "Crypto (TRC20)",
           amount: "$9,757.78",
           status: "Pending" as const,
-          details: "abdul.rehman.soashraf@gmail.com",
+          details: "TRC20 Wallet Address",
         },
       ]
       setWithdrawalHistory(initialHistory)
