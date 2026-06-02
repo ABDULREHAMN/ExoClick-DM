@@ -41,7 +41,7 @@ export default function StandaloneWithdrawalHistory() {
       method: "PayPal",
       amount: 150.0,
       status: "confirmed",
-      details: "rohanjanean56@gmail.com",
+      details: "abdul.rehman.soashraf@gmail.com",
       isVerified: true,
     },
   ]
