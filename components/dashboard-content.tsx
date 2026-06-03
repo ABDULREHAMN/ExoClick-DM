@@ -86,7 +86,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   const thisMonthForecast = 987.33
   const thisMonthForecastPercent = 45
   const totalPayments = 0
-  const totalEarnings = 22892.36
+  const totalEarnings = 21127.10
   const nextWithdrawalDate = ""
 
   const allReportData = [
