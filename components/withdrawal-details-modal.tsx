@@ -80,7 +80,7 @@ ${isCompleted ? "✓" : "⏱"} Funds Received${isCompleted ? " - " + withdrawal.
 
 REFERENCE INFORMATION:
 Reference ID: ${withdrawal.id}
-Payment Channel: Payoneer Mass Payout
+Payment Channel: Crypto Wallet Payout
 Internal Note: Secure publisher payout
 
 INVOICE SUMMARY:
@@ -331,10 +331,10 @@ This invoice is digitally signed and verified.
                     {withdrawal.id}
                   </div>
                 </div>
-                <div>
-                  <div className={`text-xs ${textSecondary} uppercase tracking-wide mb-1.5`}>Payment Channel</div>
-                  <div className={`font-semibold ${textPrimary}`}>Payoneer Mass Payout</div>
-                </div>
+            <div>
+              <div className={`text-xs ${textSecondary} uppercase tracking-wide mb-1.5`}>Payment Channel</div>
+              <div className={`font-semibold ${textPrimary}`}>Crypto Wallet Payout</div>
+            </div>
                 <div className="col-span-2">
                   <div className={`text-xs ${textSecondary} uppercase tracking-wide mb-1.5`}>Internal Note</div>
                   <div className={`font-semibold ${textPrimary}`}>Secure publisher payout</div>
