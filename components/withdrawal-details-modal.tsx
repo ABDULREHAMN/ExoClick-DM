@@ -70,7 +70,6 @@ Withdrawal Amount: ${withdrawal.amount}
 Currency: USD
 Processing Time: 12–14 business days
 Processing Type: Manual Review
-Withdrawal Schedule: Withdrawals are processed twice per month only (12th and 25th)
 
 TRANSACTION TIMELINE:
 ✓ Withdrawal Requested - ${withdrawal.date}
@@ -262,6 +261,8 @@ This invoice is digitally signed and verified.
                   <div className={`text-xs ${textSecondary} uppercase tracking-wide mb-1.5`}>Processing Time</div>
                   <div className={`font-semibold ${textPrimary}`}>12–14 business days</div>
                 </div>
+              </div>
+            </div>
                 <div className="col-span-2">
                   <div className={`text-xs ${textSecondary} uppercase tracking-wide mb-1.5`}>Processing Type</div>
                   <div className={`font-semibold ${textPrimary}`}>Manual Review</div>
