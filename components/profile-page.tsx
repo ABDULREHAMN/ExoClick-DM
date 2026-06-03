@@ -14,12 +14,6 @@ interface ProfilePageProps {
   onBack: () => void
 }
 
-const ACCOUNT_STATISTICS = {
-  totalRevenue: 0.003,
-  totalImpressions: 10,
-  totalClicks: 1,
-} as const
-
 export function ProfilePage({ onBack }: ProfilePageProps) {
   const { kycStatus, verificationDate, kycReference, fullName } = useKyc()
   const [isEditing, setIsEditing] = useState(false)
@@ -285,24 +279,7 @@ export function ProfilePage({ onBack }: ProfilePageProps) {
             </div>
           </Card>
 
-          {/* Account Statistics */}
-          <Card className="p-6">
-            <h3 className="text-lg font-semibold mb-4">Account Statistics</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
-                <span className="text-gray-600">Total Revenue:</span>
-                <span className="font-medium">{formatCurrency(ACCOUNT_STATISTICS.totalRevenue)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Total Impressions:</span>
-                <span className="font-medium">{formatNumber(ACCOUNT_STATISTICS.totalImpressions)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Total Clicks:</span>
-                <span className="font-medium">{formatNumber(ACCOUNT_STATISTICS.totalClicks)}</span>
-              </div>
-            </div>
-          </Card>
+
         </div>
       </div>
     </div>
