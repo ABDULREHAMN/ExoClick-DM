@@ -29,7 +29,7 @@ export function SiteZoneContent() {
       category: "Technology",
       status: "Approved",
       zones: 10,
-      addedDate: "Jan 13, 2026",
+      addedDate: "Sep 01, 2025",
       description: "Technology blog covering latest tech news and reviews",
       siteType: "Blog",
     },
