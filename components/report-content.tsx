@@ -9,37 +9,38 @@ const reportData = {
   "Last 7 Days": {
     "All Countries": {
       "All Devices": [
+        { date: "Jun 03, 2026", impressions: "4,536", clicks: "199", ctr: "4.39%", ecpm: "$146.44", revenue: "$37.33" },
         { date: "Jun 02, 2026", impressions: "12,984", clicks: "454", ctr: "3.50%", ecpm: "$143.33", revenue: "$87.33" },
         { date: "Jun 01, 2026", impressions: "12,537", clicks: "442", ctr: "3.53%", ecpm: "$141.27", revenue: "$81.59" },
         { date: "May 31, 2026", impressions: "12,980", clicks: "452", ctr: "3.48%", ecpm: "$142.15", revenue: "$87.28" },
         { date: "May 30, 2026", impressions: "12,971", clicks: "450", ctr: "3.47%", ecpm: "$141.10", revenue: "$87.22" },
         { date: "May 29, 2026", impressions: "12,955", clicks: "446", ctr: "3.44%", ecpm: "$139.27", revenue: "$87.12" },
         { date: "May 28, 2026", impressions: "12,940", clicks: "442", ctr: "3.42%", ecpm: "$138.18", revenue: "$87.01" },
-        { date: "May 27, 2026", impressions: "12,922", clicks: "438", ctr: "3.39%", ecpm: "$137.04", revenue: "$86.88" },
       ],
       Desktop: [
+        { date: "Jun 03, 2026", impressions: "4,536", clicks: "199", ctr: "4.39%", ecpm: "$146.44", revenue: "$37.33" },
         { date: "Jun 02, 2026", impressions: "12,984", clicks: "454", ctr: "3.50%", ecpm: "$143.33", revenue: "$87.33" },
         { date: "Jun 01, 2026", impressions: "12,537", clicks: "442", ctr: "3.53%", ecpm: "$141.27", revenue: "$81.59" },
         { date: "May 31, 2026", impressions: "12,980", clicks: "452", ctr: "3.48%", ecpm: "$142.15", revenue: "$87.28" },
         { date: "May 30, 2026", impressions: "12,971", clicks: "450", ctr: "3.47%", ecpm: "$141.10", revenue: "$87.22" },
         { date: "May 29, 2026", impressions: "12,955", clicks: "446", ctr: "3.44%", ecpm: "$139.27", revenue: "$87.12" },
         { date: "May 28, 2026", impressions: "12,940", clicks: "442", ctr: "3.42%", ecpm: "$138.18", revenue: "$87.01" },
-        { date: "May 27, 2026", impressions: "12,922", clicks: "438", ctr: "3.39%", ecpm: "$137.04", revenue: "$86.88" },
       ],
       Mobile: [
+        { date: "Jun 03, 2026", impressions: "4,536", clicks: "199", ctr: "4.39%", ecpm: "$146.44", revenue: "$37.33" },
         { date: "Jun 02, 2026", impressions: "12,984", clicks: "454", ctr: "3.50%", ecpm: "$143.33", revenue: "$87.33" },
         { date: "Jun 01, 2026", impressions: "12,537", clicks: "442", ctr: "3.53%", ecpm: "$141.27", revenue: "$81.59" },
         { date: "May 31, 2026", impressions: "12,980", clicks: "452", ctr: "3.48%", ecpm: "$142.15", revenue: "$87.28" },
         { date: "May 30, 2026", impressions: "12,971", clicks: "450", ctr: "3.47%", ecpm: "$141.10", revenue: "$87.22" },
         { date: "May 29, 2026", impressions: "12,955", clicks: "446", ctr: "3.44%", ecpm: "$139.27", revenue: "$87.12" },
         { date: "May 28, 2026", impressions: "12,940", clicks: "442", ctr: "3.42%", ecpm: "$138.18", revenue: "$87.01" },
-        { date: "May 27, 2026", impressions: "12,922", clicks: "438", ctr: "3.39%", ecpm: "$137.04", revenue: "$86.88" },
       ],
     },
   },
   "Last 30 Days": {
     "All Countries": {
       "All Devices": [
+        { date: "Jun 03, 2026", impressions: "4,536", clicks: "199", ctr: "4.39%", ecpm: "$146.44", revenue: "$37.33" },
         { date: "Jun 02, 2026", impressions: "12,984", clicks: "454", ctr: "3.50%", ecpm: "$143.33", revenue: "$87.33" },
         { date: "Jun 01, 2026", impressions: "12,537", clicks: "442", ctr: "3.53%", ecpm: "$141.27", revenue: "$81.59" },
         { date: "May 31, 2026", impressions: "12,980", clicks: "452", ctr: "3.48%", ecpm: "$142.15", revenue: "$87.28" },
