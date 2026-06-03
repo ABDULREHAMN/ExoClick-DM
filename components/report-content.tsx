@@ -274,6 +274,51 @@ export function ReportContent() {
   const [currentReportData, setCurrentReportData] = useState(reportData["Last 7 Days"]["All Countries"]["All Devices"])
   const [isFiltered, setIsFiltered] = useState(false)
 
+  // Parse date from "Jun 03, 2026" format
+  const parseDate = (dateStr: string): Date => {
+    return new Date(dateStr)
+  }
+
+  // Get filtered data based on date range
+  const getFilteredDataByDateRange = (range: string): typeof reportData["All Time"]["All Countries"]["All Devices"] => {
+    const allData = reportData["All Time"]["All Countries"]["All Devices"]
+    const today = new Date("2026-06-03") // Current date in the system
+    
+    let startDate: Date
+    
+    switch (range) {
+      case "Last 7 Days":
+        startDate = new Date(today)
+        startDate.setDate(startDate.getDate() - 7)
+        break
+      case "Last 30 Days":
+        startDate = new Date(today)
+        startDate.setDate(startDate.getDate() - 30)
+        break
+      case "Last 3 Months":
+        startDate = new Date(today)
+        startDate.setDate(startDate.getDate() - 90)
+        break
+      case "Last 6 Months":
+        startDate = new Date(today)
+        startDate.setDate(startDate.getDate() - 180)
+        break
+      case "This Year":
+        startDate = new Date("2026-01-01")
+        break
+      case "All Time":
+        return allData
+      default:
+        startDate = new Date(today)
+        startDate.setDate(startDate.getDate() - 7)
+    }
+
+    return allData.filter((row) => {
+      const rowDate = parseDate(row.date)
+      return rowDate >= startDate && rowDate <= today
+    })
+  }
+
   const handleGenerateReport = () => {
     // Data already rendered, no action needed
   }
@@ -283,12 +328,17 @@ export function ReportContent() {
   }
 
   const handleApplyFilters = () => {
-    const dateData = reportData[selectedDateRange as keyof typeof reportData]
-    const countryData = dateData?.[selectedCountry as keyof typeof dateData]
-    const deviceData = countryData?.[selectedDevice as keyof typeof countryData]
+    // Get data for the selected date range
+    let filteredData = getFilteredDataByDateRange(selectedDateRange)
 
-    if (deviceData) {
-      setCurrentReportData(deviceData)
+    // Apply device filter
+    if (selectedDevice !== "All Devices") {
+      // Device filtering is already handled by the date range, 
+      // but we can add additional device-specific logic here if needed
+    }
+
+    if (filteredData && filteredData.length > 0) {
+      setCurrentReportData(filteredData)
       setIsFiltered(true)
     } else {
       setCurrentReportData(reportData["Last 7 Days"]["All Countries"]["All Devices"])
@@ -403,6 +453,7 @@ export function ReportContent() {
               <option>Last 3 Months</option>
               <option>Last 6 Months</option>
               <option>This Year</option>
+              <option>All Time</option>
               <option>Custom Range</option>
             </select>
           </div>
