@@ -216,9 +216,11 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
           id: "w-15",
           date: "14 May 2026",
           method: "Crypto (TRC20)",
-          amount: "$9,757.78",
+          amount: "$9,269.89",
           status: "Pending" as const,
           details: "TRC20 Wallet Address",
+          grossAmount: "$9,757.78",
+          tax: "$487.89",
         },
       ]
       setWithdrawalHistory(initialHistory)
@@ -262,7 +264,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     return () => clearInterval(interval)
   }, [withdrawalHistory])
 
-  const availableBalance = 0
+  const availableBalance = 1923.77
   const pendingBalance = 9757.78
   const totalEarnings = 22690.85
   const totalPayments = 6727.43
