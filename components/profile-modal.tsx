@@ -152,25 +152,6 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
             </div>
           </div>
 
-          {/* Account Statistics */}
-          <div className="bg-white border rounded-lg p-4">
-            <h3 className="text-lg font-semibold mb-4">Account Statistics</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-green-50 rounded-lg border border-green-200">
-                <div className="text-2xl font-bold text-green-600">$0.003</div>
-                <div className="text-sm text-gray-600">Total Earnings</div>
-              </div>
-              <div className="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
-                <div className="text-2xl font-bold text-blue-600">10</div>
-                <div className="text-sm text-gray-600">Total Impressions</div>
-              </div>
-              <div className="text-center p-4 bg-purple-50 rounded-lg border border-purple-200">
-                <div className="text-2xl font-bold text-purple-600">1</div>
-                <div className="text-sm text-gray-600">Total Clicks</div>
-              </div>
-            </div>
-          </div>
-
           {/* Recent Activity - Hidden when empty */}
         </div>
       </DialogContent>
