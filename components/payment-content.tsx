@@ -291,7 +291,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     if (pendingBalance > 0) {
       setShowError(true)
       setErrorMessage(
-        "You have a pending withdrawal scheduled for January 12th, 2026. Please wait for it to be processed before requesting another withdrawal.",
+        "You have a pending withdrawal scheduled for May 14th, 2026. Please wait for it to be processed before requesting another withdrawal.",
       )
       return
     }

@@ -26,7 +26,7 @@ export function ProfilePage({ onBack }: ProfilePageProps) {
     address: "",
     bio: "",
     website: "https://techblogi.com/",
-    joinDate: "January 13, 2026",
+    joinDate: "01 Sep 2025",
   })
 
   const handleSave = () => {
