@@ -146,6 +146,7 @@ const reportData = {
       ],
     },
   },
+  "Last 30 Days": {
     "All Countries": {
       "All Devices": [
         { date: "Jun 03, 2026", impressions: "4,536", clicks: "199", ctr: "4.39%", ecpm: "$146.44", revenue: "$37.33" },
