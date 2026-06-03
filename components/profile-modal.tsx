@@ -21,7 +21,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
     company: "Tech Blogi",
     phone: "+923227607144",
     website: "https://techblogi.com",
-    joinDate: "12 January 2026",
+    joinDate: "01 Sep 2025",
     accountType: "Publisher",
   }
 
