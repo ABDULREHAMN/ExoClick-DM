@@ -160,7 +160,7 @@ This invoice is digitally signed and verified.
     },
     {
       step: "Sent to Wallet",
-      status: isCompleted ? "Completed" : isPending ? "Pending" : "Completed",
+      status: "Completed",
       date: null,
     },
     {
