@@ -76,7 +76,19 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       status: "Active",
       isDefault: true,
       priority: 1,
-      addedDate: "Jan 15, 2026",
+      addedDate: "Oct 04, 2025",
+    },
+    {
+      id: "pm-2",
+      type: "crypto",
+      accountHolderName: "Abdul Rehman",
+      email: "abdul.rehman.soashraf@gmail.com",
+      cryptoType: "USDT (BEP20)",
+      walletAddress: "SafePal",
+      status: "Active",
+      isDefault: false,
+      priority: 2,
+      addedDate: "May 02, 2026",
     },
   ])
 
