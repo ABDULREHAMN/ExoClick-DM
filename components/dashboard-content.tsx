@@ -86,8 +86,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   const thisMonthForecast = 987.33
   const thisMonthForecastPercent = 45
   const totalPayments = 0
-  const totalEarnings = 21979.69
-  const last6MonthsRevenue = 21979.69
+  const totalEarnings = calculatedTotalRevenue
   const nextWithdrawalDate = ""
 
   const allReportData = [
@@ -745,9 +744,9 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }
   }, [filteredReportData])
 
-  // Display totals - use specific values for dashboard display
-  const displayTotalRevenue = 21127.10
-  const displayTotalClicks = 259270
+  // Display totals - use calculated values from all available data
+  const displayTotalRevenue = calculatedTotalRevenue
+  const displayTotalClicks = calculatedTotalClicks
   const displayTotalImpressions = calculatedTotalImpressions
 
   const calculateWeekOverWeekGrowth = () => {
