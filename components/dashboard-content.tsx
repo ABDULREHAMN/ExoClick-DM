@@ -47,6 +47,7 @@ import {
   formatNumber,
   formatPercentage,
 } from "@/lib/data-utils"
+import { reports } from "@/lib/data"
 
 type DashboardView = "default" | "new" | "overview" // Added "overview" to DashboardView
 type WidgetType = "default" | "today" | "hourly"
@@ -237,7 +238,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   ]
 
   // Distribute each day's data into hourly breakdown
-  const distributeDataByHour = (dailyData: typeof allReportData) => {
+  const distributeDataByHour = (dailyData: typeof reports.daily) => {
     const hourlyData: Array<{
       date: string
       hour: number
@@ -279,7 +280,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
 
   // Generate full hourly distribution
   const fullHourlyData = React.useMemo(() => {
-    return distributeDataByHour(allReportData)
+    return distributeDataByHour(reports.daily)
   }, [])
 
   // Apply filters to hourly data
@@ -573,7 +574,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }
   }
 
-  const applyDashboardFilters = (data: typeof allReportData) => {
+  const applyDashboardFilters = (data: typeof reports.daily) => {
     let filtered = [...data]
 
     // Apply date range filter from dashboard filters
@@ -593,14 +594,14 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     return filtered
   }
 
-  const filteredReportData = applyDashboardFilters(allReportData)
+  const filteredReportData = applyDashboardFilters(reports.daily)
 
   const getFilteredData = () => {
     // This function is no longer directly used for chart data, but kept for potential future use or specific components.
     // It returns data based on the dateRange state (which is now dashboardDateRange).
-    if (!dashboardDateRange) return allReportData
+    if (!dashboardDateRange) return reports.daily
 
-    const sortedData = [...allReportData].sort((a, b) => {
+    const sortedData = [...reports.daily].sort((a, b) => {
       const dateA = new Date(a.date)
       const dateB = new Date(b.date)
       return dateB.getTime() - dateA.getTime()
@@ -694,7 +695,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   const displayTotalImpressions = calculatedTotalImpressions
 
   const calculateWeekOverWeekGrowth = () => {
-    const dataToCalculate = dashboardDateRange ? filteredReportData : allReportData
+    const dataToCalculate = dashboardDateRange ? filteredReportData : reports.daily
     const relevantData = [...dataToCalculate].sort((a, b) => {
       const dateA = new Date(a.date)
       const dateB = new Date(b.date)
