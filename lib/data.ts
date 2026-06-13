@@ -80,10 +80,6 @@ export const reports = {
     { date: "Apr 28, 2026", impressions: 7280, clicks: 715, revenue: 89.00, ctr: "9.82%", ecpm: "135.00" },
     { date: "Apr 29, 2026", impressions: 7248, clicks: 735, revenue: 80.95, ctr: "10.13%", ecpm: "165.00" },
     { date: "Apr 30, 2026", impressions: 7250, clicks: 736, revenue: 81.40, ctr: "10.14%", ecpm: "165.50" },
-    // April extra - high-revenue days for 6-month target
-    { date: "Apr 31a, 2026", impressions: 40000, clicks: 3200, revenue: 2986.08, ctr: "8.00%", ecpm: "1700.00" },
-    { date: "Apr 31b, 2026", impressions: 41000, clicks: 3300, revenue: 2986.08, ctr: "8.05%", ecpm: "1710.00" },
-    { date: "Apr 31c, 2026", impressions: 42000, clicks: 3400, revenue: 3245.75, ctr: "8.10%", ecpm: "1720.00" },
     // May 2026
     { date: "May 01, 2026", impressions: 34652, clicks: 2543, revenue: 890.33, ctr: "7.34%", ecpm: "450.44" },
     { date: "May 02, 2026", impressions: 34821, clicks: 2591, revenue: 906.18, ctr: "7.44%", ecpm: "456.22" },
