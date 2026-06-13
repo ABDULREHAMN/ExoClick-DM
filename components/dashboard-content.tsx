@@ -40,6 +40,7 @@ import {
 import {
   getThisMonthData,
   getLastMonthData,
+  getLast6MonthsData,
   getRecentActivity,
   getLatestData,
   aggregateStats,
@@ -114,8 +115,8 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   const thisMonthForecastPercent = 45
   const totalPayments = 0
   const totalEarnings = useMemo(() => {
-    const allMonthData = [...getThisMonthData(), ...getLastMonthData()]
-    const stats = aggregateStats(allMonthData)
+    const last6Months = getLast6MonthsData()
+    const stats = aggregateStats(last6Months)
     return stats.totalRevenue
   }, [])
   const nextWithdrawalDate = ""

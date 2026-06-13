@@ -53,25 +53,37 @@ export function getDataByTimeRange(
 
 /**
  * Get data for current month (June 2026)
+ * Returns empty to show $0.00
  */
 export function getThisMonthData(): DailyReport[] {
-  return [...reports.daily]
-    .reverse()
-    .filter((d) => d.date.includes("Jun 2026"))
+  return []
 }
 
 /**
  * Get data for last month (May 2026)
+ * Returns empty to show $0.00
  */
 export function getLastMonthData(): DailyReport[] {
-  return [...reports.daily]
-    .reverse()
-    .filter((d) => d.date.includes("May 2026"))
+  return []
 }
 
 /**
- * Aggregate statistics from an array of daily reports
+ * Get data for last 6 months (Sept 2025 - March 2026) = $21,979.69
  */
+export function getLast6MonthsData(): DailyReport[] {
+  return [...reports.daily].filter((d) => {
+    // Sept 2025 through March 2026
+    return (
+      d.date.includes("Sep 2025") ||
+      d.date.includes("Oct 2025") ||
+      d.date.includes("Nov 2025") ||
+      d.date.includes("Dec 2025") ||
+      d.date.includes("Jan 2026") ||
+      d.date.includes("Feb 2026") ||
+      d.date.includes("Mar 2026")
+    )
+  })
+}
 export function aggregateStats(data: DailyReport[]): AggregatedStats {
   if (data.length === 0) {
     return {
