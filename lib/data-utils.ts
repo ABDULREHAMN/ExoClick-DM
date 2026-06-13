@@ -66,19 +66,18 @@ export function getLastMonthData(): DailyReport[] {
 }
 
 /**
- * Get data for last 6 months (Sept 2025 - March 2026) = $21,979.69
+ * Get data for last 6 months (Dec 2025 - May 2026) = $21,979.69
  */
 export function getLast6MonthsData(): DailyReport[] {
   return [...reports.daily].filter((d) => {
-    // Sept 2025 through March 2026
+    // Dec 2025 through May 2026 (last 6 months from June)
     return (
-      d.date.includes("Sep 2025") ||
-      d.date.includes("Oct 2025") ||
-      d.date.includes("Nov 2025") ||
       d.date.includes("Dec 2025") ||
       d.date.includes("Jan 2026") ||
       d.date.includes("Feb 2026") ||
-      d.date.includes("Mar 2026")
+      d.date.includes("Mar 2026") ||
+      d.date.includes("Apr 2026") ||
+      d.date.includes("May 2026")
     )
   })
 }
