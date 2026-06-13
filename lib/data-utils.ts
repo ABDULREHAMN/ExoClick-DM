@@ -53,18 +53,16 @@ export function getDataByTimeRange(
 
 /**
  * Get data for current month (June 2026)
- * Returns empty to show $0.00
  */
 export function getThisMonthData(): DailyReport[] {
-  return []
+  return reports.daily.filter((d) => d.date.includes("Jun 2026"))
 }
 
 /**
  * Get data for last month (May 2026)
- * Returns empty to show $0.00
  */
 export function getLastMonthData(): DailyReport[] {
-  return []
+  return reports.daily.filter((d) => d.date.includes("May 2026"))
 }
 
 /**
