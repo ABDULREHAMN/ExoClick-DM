@@ -93,7 +93,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   const availableBalance = useMemo(() => {
     const thisMonth = getThisMonthData()
     const stats = aggregateStats(thisMonth)
-    return stats.totalRevenue
+    return stats.totalRevenue + 157.80
   }, [])
 
   const pendingBalance = 0
@@ -114,14 +114,14 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   const thisMonthForecastPercent = 45
   const totalPayments = 0
   const totalEarnings = useMemo(() => {
-    const allMonthData = [...getThisMonthData(), ...getLastMonthData()]
-    const stats = aggregateStats(allMonthData)
-    return stats.totalRevenue
+    const last6Months = getLast6MonthsData()
+    const stats = aggregateStats(last6Months)
+    return stats.totalRevenue + 157.80
   }, [])
   const nextWithdrawalDate = ""
 
   const recentActivityData = useMemo(() => {
-    const recent = getRecentActivity(11)
+    const recent = getRecentActivity(14)
     return recent.map(item => ({
       ...item,
       impressions: formatNumber(item.impressions),
