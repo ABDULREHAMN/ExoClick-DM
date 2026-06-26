@@ -70,6 +70,23 @@ export function getLastMonthData(): DailyReport[] {
 }
 
 /**
+ * Get data for last 6 months (Sept 2025 - March 2026)
+ */
+export function getLast6MonthsData(): DailyReport[] {
+  return [...reports.daily].filter((d) => {
+    return (
+      d.date.includes("Sep 2025") ||
+      d.date.includes("Oct 2025") ||
+      d.date.includes("Nov 2025") ||
+      d.date.includes("Dec 2025") ||
+      d.date.includes("Jan 2026") ||
+      d.date.includes("Feb 2026") ||
+      d.date.includes("Mar 2026")
+    )
+  })
+}
+
+/**
  * Aggregate statistics from an array of daily reports
  */
 export function aggregateStats(data: DailyReport[]): AggregatedStats {
