@@ -15,6 +15,7 @@ export interface ManualDashboardValues {
   availableBalance: number
   pendingBalance: number
   totalEarnings: number
+  nextWithdrawalDate: string
 }
 
 export interface ManualRecentActivity {
@@ -50,6 +51,7 @@ export const manualDashboard: ManualDashboardValues = {
   availableBalance: 1184.31,
   pendingBalance: 0.0,
   totalEarnings: 22137.49,
+  nextWithdrawalDate: "29-06-2026",
 }
 
 /**
