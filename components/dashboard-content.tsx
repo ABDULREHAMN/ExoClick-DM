@@ -100,7 +100,7 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   const thisMonthForecastPercent = 45
   const totalPayments = 0
   const totalEarnings = manualData.last6Months
-  const nextWithdrawalDate = ""
+  const nextWithdrawalDate = manualData.nextWithdrawalDate
 
   const recentActivityData = useMemo(() => {
     const recent = getManualRecentActivity()
