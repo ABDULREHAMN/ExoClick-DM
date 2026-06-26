@@ -38,16 +38,15 @@ import {
   Legend,
 } from "recharts"
 import {
-  getThisMonthData,
-  getLastMonthData,
-  getRecentActivity,
-  getLatestData,
-  aggregateStats,
   formatCurrency,
   formatNumber,
-  formatPercentage,
 } from "@/lib/data-utils"
 import { reports } from "@/lib/data"
+import { 
+  getManualDashboard, 
+  getManualRecentActivity,
+  getManualDailyReports,
+} from "@/lib/manual-data"
 
 type DashboardView = "default" | "new" | "overview" // Added "overview" to DashboardView
 type WidgetType = "default" | "today" | "hourly"
@@ -90,38 +89,21 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }
   }
 
-  const availableBalance = useMemo(() => {
-    const thisMonth = getThisMonthData()
-    const stats = aggregateStats(thisMonth)
-    return stats.totalRevenue + 157.80
-  }, [])
-
-  const pendingBalance = 0
+  // MANUAL DATA CONTROL MODE - All values are manually set, no calculations
+  const manualData = getManualDashboard()
   
-  const thisMonthEarnings = useMemo(() => {
-    const thisMonth = getThisMonthData()
-    const stats = aggregateStats(thisMonth)
-    return stats.totalRevenue
-  }, [])
-
-  const lastMonthEarnings = useMemo(() => {
-    const lastMonth = getLastMonthData()
-    const stats = aggregateStats(lastMonth)
-    return stats.totalRevenue
-  }, [])
-
+  const availableBalance = manualData.availableBalance
+  const pendingBalance = manualData.pendingBalance
+  const thisMonthEarnings = manualData.thisMonth
+  const lastMonthEarnings = manualData.lastMonth
   const thisMonthForecast = 987.33
   const thisMonthForecastPercent = 45
   const totalPayments = 0
-  const totalEarnings = useMemo(() => {
-    const last6Months = getLast6MonthsData()
-    const stats = aggregateStats(last6Months)
-    return stats.totalRevenue + 157.80
-  }, [])
+  const totalEarnings = manualData.last6Months
   const nextWithdrawalDate = ""
 
   const recentActivityData = useMemo(() => {
-    const recent = getRecentActivity(14)
+    const recent = getManualRecentActivity()
     return recent.map(item => ({
       ...item,
       impressions: formatNumber(item.impressions),
@@ -130,9 +112,11 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }))
   }, [])
 
+  // Get today's data from manual recent activity (first item is today)
   const latestActivity = useMemo(() => {
-    const latest = getLatestData()
-    if (!latest) return null
+    const recent = getManualRecentActivity()
+    if (recent.length === 0) return null
+    const latest = recent[0]
     return {
       date: latest.date,
       revenue: latest.revenue,
@@ -144,13 +128,14 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   }, [])
 
   const todayTotals = useMemo(() => {
-    const latest = getLatestData()
-    if (!latest)
+    const recent = getManualRecentActivity()
+    if (recent.length === 0)
       return {
         impressions: 0,
         clicks: 0,
         revenue: 0,
       }
+    const latest = recent[0]
     return {
       impressions: latest.impressions,
       clicks: latest.clicks,
@@ -159,28 +144,28 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
   }, [])
 
   const todayRevenue = useMemo(() => {
-    const latest = getLatestData()
-    return latest?.revenue ?? 0
+    const recent = getManualRecentActivity()
+    return recent.length > 0 ? recent[0].revenue : 0
   }, [])
 
   const todayImpressions = useMemo(() => {
-    const latest = getLatestData()
-    return latest?.impressions ?? 0
+    const recent = getManualRecentActivity()
+    return recent.length > 0 ? recent[0].impressions : 0
   }, [])
 
   const todayClicks = useMemo(() => {
-    const latest = getLatestData()
-    return latest?.clicks ?? 0
+    const recent = getManualRecentActivity()
+    return recent.length > 0 ? recent[0].clicks : 0
   }, [])
 
   const todayCTR = useMemo(() => {
-    const latest = getLatestData()
-    return latest?.ctr?.replace("%", "") ?? "0"
+    const recent = getManualRecentActivity()
+    return recent.length > 0 ? recent[0].ctr.replace("%", "") : "0"
   }, [])
 
   const todayECPM = useMemo(() => {
-    const latest = getLatestData()
-    return latest?.ecpm?.replace("$", "") ?? "0"
+    const recent = getManualRecentActivity()
+    return recent.length > 0 ? recent[0].ecpm.replace("$", "") : "0"
   }, [])
 
   const hourlyData = []
@@ -574,7 +559,10 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     }
   }
 
-  const applyDashboardFilters = (data: typeof reports.daily) => {
+  // MANUAL DATA CONTROL MODE - Use manual daily reports
+  const manualDailyReports = getManualDailyReports()
+  
+  const applyDashboardFilters = (data: typeof manualDailyReports) => {
     let filtered = [...data]
 
     // Apply date range filter from dashboard filters
@@ -594,14 +582,14 @@ export function DashboardContent({ onNavigate }: DashboardContentProps) {
     return filtered
   }
 
-  const filteredReportData = applyDashboardFilters(reports.daily)
+  const filteredReportData = applyDashboardFilters(manualDailyReports)
 
   const getFilteredData = () => {
     // This function is no longer directly used for chart data, but kept for potential future use or specific components.
     // It returns data based on the dateRange state (which is now dashboardDateRange).
-    if (!dashboardDateRange) return reports.daily
+    if (!dashboardDateRange) return manualDailyReports
 
-    const sortedData = [...reports.daily].sort((a, b) => {
+    const sortedData = [...manualDailyReports].sort((a, b) => {
       const dateA = new Date(a.date)
       const dateB = new Date(b.date)
       return dateB.getTime() - dateA.getTime()
