@@ -60,6 +60,7 @@ export const manualDashboard: ManualDashboardValues = {
  * Do NOT generate automatic activity
  */
 export const manualRecentActivity: ManualRecentActivity[] = [
+  { date: "Jun 27, 2026", impressions: 2458, clicks: 42, revenue: 4.25, ctr: "1.71%", ecpm: "35.18" },
   { date: "Jun 26, 2026", impressions: 2322, clicks: 37, revenue: 3.87, ctr: "1.59%", ecpm: "34.32" },
   { date: "Jun 25, 2026", impressions: 5464, clicks: 165, revenue: 13.98, ctr: "3.02%", ecpm: "53.98" },
   { date: "Jun 24, 2026", impressions: 5275, clicks: 156, revenue: 13.21, ctr: "2.96%", ecpm: "52.24" },
@@ -81,6 +82,7 @@ export const manualRecentActivity: ManualRecentActivity[] = [
  * ONLY add/replace/remove records the user explicitly provides
  */
 export const manualDailyReports: ManualDailyReport[] = [
+  { date: "Jun 27, 2026", impressions: 2458, clicks: 42, revenue: 4.25, ctr: "1.71%", ecpm: "35.18" },
   { date: "Jun 26, 2026", impressions: 2322, clicks: 37, revenue: 3.87, ctr: "1.59%", ecpm: "34.32" },
   { date: "Jun 25, 2026", impressions: 5464, clicks: 165, revenue: 13.98, ctr: "3.02%", ecpm: "53.98" },
   { date: "Jun 24, 2026", impressions: 5275, clicks: 156, revenue: 13.21, ctr: "2.96%", ecpm: "52.24" },
