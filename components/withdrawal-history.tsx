@@ -123,8 +123,8 @@ export function WithdrawalHistory() {
     {
       date: "14 May 2026",
       method: "Crypto (TRC20)",
-      amount: 9757.78,
-      status: "scheduled",
+      amount: 9269.89,
+      status: "hold",
       details: "TRC20 Wallet Address",
       isVerified: true,
     },
