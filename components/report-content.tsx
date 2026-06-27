@@ -1,10 +1,12 @@
 "use client"
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import { Download, Filter, RefreshCw, BarChart2 } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { getReportsByDateRange, calculateReportTotals, type FilteredReport } from "@/lib/report-filters"
 
+// Legacy hardcoded data - no longer used
 const reportData = {
   "All Time": {
     "All Countries": {
@@ -281,78 +283,28 @@ export function ReportContent() {
   const [selectedSite, setSelectedSite] = useState("All Sites")
   const [selectedCountry, setSelectedCountry] = useState("All Countries")
   const [selectedDevice, setSelectedDevice] = useState("All Devices")
-  const [currentReportData, setCurrentReportData] = useState(reportData["Last 7 Days"]["All Countries"]["All Devices"])
   const [isFiltered, setIsFiltered] = useState(false)
 
-  // Parse date from "Jun 03, 2026" format
-  const parseDate = (dateStr: string): Date => {
-    return new Date(dateStr)
-  }
+  // Get filtered reports based on date range - updates on date range change
+  const currentReportData = useMemo(() => {
+    return getReportsByDateRange(selectedDateRange)
+  }, [selectedDateRange])
 
-  // Get filtered data based on date range
-  const getFilteredDataByDateRange = (range: string): typeof reportData["All Time"]["All Countries"]["All Devices"] => {
-    const allData = reportData["All Time"]["All Countries"]["All Devices"]
-    const today = new Date("2026-06-03") // Current date in the system
-    
-    let startDate: Date
-    
-    switch (range) {
-      case "Last 7 Days":
-        startDate = new Date(today)
-        startDate.setDate(startDate.getDate() - 7)
-        break
-      case "Last 30 Days":
-        startDate = new Date(today)
-        startDate.setDate(startDate.getDate() - 30)
-        break
-      case "Last 3 Months":
-        startDate = new Date(today)
-        startDate.setDate(startDate.getDate() - 90)
-        break
-      case "Last 6 Months":
-        startDate = new Date(today)
-        startDate.setDate(startDate.getDate() - 180)
-        break
-      case "This Year":
-        startDate = new Date("2026-01-01")
-        break
-      case "All Time":
-        return allData
-      default:
-        startDate = new Date(today)
-        startDate.setDate(startDate.getDate() - 7)
-    }
-
-    return allData.filter((row) => {
-      const rowDate = parseDate(row.date)
-      return rowDate >= startDate && rowDate <= today
-    })
-  }
-
-  const handleGenerateReport = () => {
-    // Data already rendered, no action needed
-  }
+  // Calculate totals from filtered reports
+  const totals = useMemo(() => {
+    return calculateReportTotals(currentReportData)
+  }, [currentReportData])
 
   const handleRefresh = () => {
-    // Data already current, no action needed
+    // Refresh by re-running the filters
+    setSelectedDateRange(selectedDateRange)
   }
 
   const handleApplyFilters = () => {
-    // Get data for the selected date range
-    let filteredData = getFilteredDataByDateRange(selectedDateRange)
-
-    // Apply device filter
-    if (selectedDevice !== "All Devices") {
-      // Device filtering is already handled by the date range, 
-      // but we can add additional device-specific logic here if needed
-    }
-
-    if (filteredData && filteredData.length > 0) {
-      setCurrentReportData(filteredData)
+    // Filters are applied automatically via useMemo
+    // Mark as filtered if a specific range is selected
+    if (selectedDateRange !== "All Time") {
       setIsFiltered(true)
-    } else {
-      setCurrentReportData(reportData["Last 7 Days"]["All Countries"]["All Devices"])
-      setIsFiltered(false)
     }
   }
 
@@ -363,50 +315,8 @@ export function ReportContent() {
     setSelectedSite("All Sites")
     setSelectedCountry("All Countries")
     setSelectedDevice("All Devices")
-
-    setCurrentReportData(reportData["Last 7 Days"]["All Countries"]["All Devices"])
     setIsFiltered(false)
   }
-
-  const calculateTotals = () => {
-    if (currentReportData.length === 0) {
-      return {
-        totalRevenue: statisticsTotals.revenue.toFixed(3),
-        totalImpressions: statisticsTotals.impressions.toLocaleString(),
-        totalClicks: statisticsTotals.clicks.toLocaleString(),
-        avgCTR: `${statisticsTotals.ctr.toFixed(2)}%`,
-        avgECPM: `$${statisticsTotals.ecpm.toFixed(2)}`,
-      }
-    }
-
-    const totalRevenue = currentReportData.reduce((sum, row) => {
-      const revenue = Number.parseFloat(row.revenue.replace("$", "").replace(",", ""))
-      return sum + revenue
-    }, 0)
-
-    const totalImpressions = currentReportData.reduce((sum, row) => {
-      const impressions = Number.parseInt(row.impressions.replace(",", ""))
-      return sum + impressions
-    }, 0)
-
-    const totalClicks = currentReportData.reduce((sum, row) => {
-      const clicks = Number.parseInt(row.clicks.replace(",", ""))
-      return sum + clicks
-    }, 0)
-
-    const avgCTR = totalImpressions > 0 ? ((totalClicks / totalImpressions) * 100).toFixed(2) : "0.00"
-    const avgECPM = totalImpressions > 0 ? ((totalRevenue / totalImpressions) * 1000).toFixed(2) : "0.00"
-
-    return {
-      totalRevenue: totalRevenue.toFixed(3),
-      totalImpressions: totalImpressions.toLocaleString(),
-      totalClicks: totalClicks.toLocaleString(),
-      avgCTR: `${avgCTR}%`,
-      avgECPM: `$${avgECPM}`,
-    }
-  }
-
-  const totals = calculateTotals()
 
   return (
     <div className="p-6 space-y-6">
@@ -614,11 +524,11 @@ export function ReportContent() {
                     <ReportRow
                       key={index}
                       date={row.date}
-                      impressions={row.impressions}
-                      clicks={row.clicks}
+                      impressions={row.impressions.toLocaleString()}
+                      clicks={row.clicks.toLocaleString()}
                       ctr={row.ctr}
                       ecpm={row.ecpm}
-                      revenue={row.revenue}
+                      revenue={`$${row.revenue.toFixed(2)}`}
                     />
                   ))
                 )}
