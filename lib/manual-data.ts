@@ -43,7 +43,7 @@ export interface ManualDailyReport {
  */
 export const manualDashboard: ManualDashboardValues = {
   thisMonth: 1184.31,
-  lastMonth: 0.0,
+  lastMonth: 8617.56,
   last3Months: 0.0,
   last6Months: 22137.49,
   thisYear: 22137.49,
