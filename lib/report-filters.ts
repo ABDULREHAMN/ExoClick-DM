@@ -47,6 +47,7 @@ function getLatestDate(): Date {
 
 /**
  * Filter reports based on date range
+ * Shows EVERY SINGLE DAY within the selected range as individual rows
  */
 export function getReportsByDateRange(range: string): FilteredReport[] {
   const allReports = [...manualDailyReports]
@@ -59,50 +60,86 @@ export function getReportsByDateRange(range: string): FilteredReport[] {
 
   switch (range) {
     case "Last 7 Days":
+      // Every day within the last 7 days from today
       startDate = new Date(today)
-      startDate.setDate(startDate.getDate() - 7)
+      startDate.setDate(startDate.getDate() - 6) // Include today + 6 previous days = 7 days
+      endDate = new Date(today)
       break
+    
     case "Last 30 Days":
+      // Every day within the last 30 days from today
       startDate = new Date(today)
-      startDate.setDate(startDate.getDate() - 30)
+      startDate.setDate(startDate.getDate() - 29) // Include today + 29 previous days = 30 days
+      endDate = new Date(today)
       break
+    
     case "Last 3 Months":
+      // Every day from the last 3 months (including partial months)
       startDate = new Date(today)
-      startDate.setMonth(startDate.getMonth() - 3)
+      startDate.setMonth(startDate.getMonth() - 2) // Go back 2 full months + current month
+      startDate.setDate(1) // Start from first day of that month
+      endDate = new Date(today)
       break
+    
     case "Last 6 Months":
+      // Every day from the last 6 months (including partial months)
       startDate = new Date(today)
-      startDate.setMonth(startDate.getMonth() - 6)
+      startDate.setMonth(startDate.getMonth() - 5) // Go back 5 full months + current month
+      startDate.setDate(1) // Start from first day of that month
+      endDate = new Date(today)
       break
+    
     case "This Month":
+      // Every day in the current month
       startDate = new Date(currentYear, currentMonth, 1)
+      endDate = new Date(today)
       break
+    
     case "Last Month":
+      // Every day in the previous month
       startDate = new Date(currentYear, currentMonth - 1, 1)
-      endDate = new Date(currentYear, currentMonth, 0)
+      endDate = new Date(currentYear, currentMonth, 0) // Last day of previous month
       break
+    
     case "This Year":
+      // Every day from January 1 to today of current year
       startDate = new Date(currentYear, 0, 1)
+      endDate = new Date(today)
       break
+    
     case "All Time":
-      // Return all reports sorted by date (newest first)
-      return allReports
-        .map(formatReport)
-        .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
+      // Every single imported daily record, no date filtering
+      startDate = null
+      endDate = new Date("2099-12-31") // Far future to include all dates
+      break
+    
     default:
+      // Default to Last 7 Days
       startDate = new Date(today)
-      startDate.setDate(startDate.getDate() - 7)
+      startDate.setDate(startDate.getDate() - 6)
+      endDate = new Date(today)
   }
 
-  // Filter reports within date range
+  // Filter reports within date range - INCLUDE EVERY MATCHING DAY
   const filtered = allReports.filter((report) => {
     const reportDate = parseDate(report.date)
-    if (startDate && reportDate < startDate) return false
-    if (reportDate > endDate) return false
+    
+    // Reset time to compare dates only (ignore time portion)
+    reportDate.setHours(0, 0, 0, 0)
+    const compareStart = startDate ? new Date(startDate) : null
+    if (compareStart) compareStart.setHours(0, 0, 0, 0)
+    
+    const compareEnd = new Date(endDate)
+    compareEnd.setHours(0, 0, 0, 0)
+    
+    // Check if report date falls within range
+    if (compareStart && reportDate < compareStart) return false
+    if (reportDate > compareEnd) return false
+    
     return true
   })
 
-  // Sort by date (newest first)
+  // Sort by date (newest first) - EVERY DAY AS INDIVIDUAL ROW
   return filtered
     .map(formatReport)
     .sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime())
