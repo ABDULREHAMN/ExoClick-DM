@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { LiveChatWidget } from "@/components/live-chat-widget"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -53,7 +52,6 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {children}
-        <LiveChatWidget />
         <script
           dangerouslySetInnerHTML={{
             __html: `
