@@ -48,7 +48,7 @@ export const manualDashboard: ManualDashboardValues = {
   last6Months: 22147.59,
   thisYear: 22147.59,
   allTime: 22147.59,
-  availableBalance: 1224.41,
+  availableBalance: 0.00,
   pendingBalance: 1960.00,
   totalEarnings: 22147.59,
   nextWithdrawalDate: "29-06-2026",
