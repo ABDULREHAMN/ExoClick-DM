@@ -234,6 +234,16 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
           grossAmount: "$9,757.78",
           tax: "$487.89",
         },
+        {
+          id: "w-16",
+          date: "29 Jun 2026",
+          method: "Crypto Wallet",
+          amount: "$1,560.00",
+          status: "Pending" as const,
+          details: "Crypto Wallet Address",
+          estimatedProcessingTime: "10-12 Days",
+          expectedCompletion: "09 Jul 2026 - 11 Jul 2026",
+        },
       ]
       setWithdrawalHistory(initialHistory)
     }

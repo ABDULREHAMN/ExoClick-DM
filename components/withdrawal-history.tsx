@@ -9,6 +9,14 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 export function WithdrawalHistory() {
   const withdrawals = [
     {
+      date: "29 Jun 2026",
+      method: "Crypto Wallet",
+      amount: 1560.00,
+      status: "scheduled",
+      details: "Crypto Wallet Address",
+      isVerified: true,
+    },
+    {
       date: "12 Oct 2025",
       method: "Payoneer",
       amount: 413.00,
@@ -153,7 +161,7 @@ export function WithdrawalHistory() {
                 date={withdrawal.date}
                 method={withdrawal.method}
                 amount={`$${withdrawal.amount.toFixed(2)}`}
-                status={withdrawal.status as "withdrawn" | "scheduled" | "failed" | "confirmed"}
+                status={withdrawal.status as "withdrawn" | "scheduled" | "failed" | "confirmed" | "hold"}
                 details={withdrawal.details}
                 isVerified={withdrawal.isVerified}
               />
