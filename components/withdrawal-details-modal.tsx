@@ -155,12 +155,12 @@ This invoice is digitally signed and verified.
     },
     {
       step: "Under Review",
-      status: isCompleted ? "Completed" : "Completed",
+      status: isCompleted ? "Completed" : "Pending",
       date: null,
     },
     {
       step: "Sent to Wallet",
-      status: "Completed",
+      status: isCompleted ? "Completed" : "Pending",
       date: null,
     },
     {
