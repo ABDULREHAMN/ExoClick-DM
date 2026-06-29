@@ -84,7 +84,7 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
       accountHolderName: "Abdul Rehman",
       email: "abdul.rehman.soashraf@gmail.com",
       cryptoType: "USDT (BEP20)",
-      walletAddress: "SafePal",
+      walletAddress: "0xdd12eef31367532ac6f7c9b1b1115a56cebf0964",
       status: "Active",
       isDefault: false,
       priority: 2,
@@ -237,10 +237,10 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
         {
           id: "w-16",
           date: "29 Jun 2026",
-          method: "Crypto Wallet",
-          amount: "$1,560.00",
+          method: "Crypto Wallet (BEP20)",
+          amount: "$1,960.00",
           status: "Pending" as const,
-          details: "Crypto Wallet Address",
+          details: "0xdd12eef31367532ac6f7c9b1b1115a56cebf0964",
           estimatedProcessingTime: "10-12 Days",
           expectedCompletion: "09 Jul 2026 - 11 Jul 2026",
         },
@@ -286,8 +286,8 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     return () => clearInterval(interval)
   }, [withdrawalHistory])
 
-  const availableBalance = 1923.77
-  const pendingBalance = 9757.78
+  const availableBalance = 1224.41
+  const pendingBalance = 1960.00
   const totalEarnings = 22690.85
   const totalPayments = 6727.43
   const thisMonthEarnings = 168.92

@@ -10,10 +10,10 @@ export function WithdrawalHistory() {
   const withdrawals = [
     {
       date: "29 Jun 2026",
-      method: "Crypto Wallet",
-      amount: 1560.00,
+      method: "Crypto Wallet (BEP20)",
+      amount: 1960.00,
       status: "scheduled",
-      details: "Crypto Wallet Address",
+      details: "0xdd12eef31367532ac6f7c9b1b1115a56cebf0964",
       isVerified: true,
     },
     {

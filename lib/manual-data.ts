@@ -42,15 +42,15 @@ export interface ManualDailyReport {
  * Do NOT calculate or derive these values
  */
 export const manualDashboard: ManualDashboardValues = {
-  thisMonth: 1184.31,
+  thisMonth: 1194.41,
   lastMonth: 8617.56,
   last3Months: 0.0,
-  last6Months: 22137.49,
-  thisYear: 22137.49,
-  allTime: 22137.49,
-  availableBalance: 1184.31,
-  pendingBalance: 0.0,
-  totalEarnings: 22137.49,
+  last6Months: 22147.59,
+  thisYear: 22147.59,
+  allTime: 22147.59,
+  availableBalance: 1224.41,
+  pendingBalance: 1960.00,
+  totalEarnings: 22147.59,
   nextWithdrawalDate: "29-06-2026",
 }
 
@@ -60,6 +60,8 @@ export const manualDashboard: ManualDashboardValues = {
  * Do NOT generate automatic activity
  */
 export const manualRecentActivity: ManualRecentActivity[] = [
+  { date: "Jun 29, 2026", impressions: 2433, clicks: 30, revenue: 5.33, ctr: "1.23%", ecpm: "35.89" },
+  { date: "Jun 28, 2026", impressions: 2343, clicks: 34, revenue: 4.77, ctr: "1.45%", ecpm: "30.44" },
   { date: "Jun 27, 2026", impressions: 2458, clicks: 42, revenue: 4.25, ctr: "1.71%", ecpm: "35.18" },
   { date: "Jun 26, 2026", impressions: 2322, clicks: 37, revenue: 3.87, ctr: "1.59%", ecpm: "34.32" },
   { date: "Jun 25, 2026", impressions: 5464, clicks: 165, revenue: 13.98, ctr: "3.02%", ecpm: "53.98" },
@@ -83,6 +85,8 @@ export const manualRecentActivity: ManualRecentActivity[] = [
  */
 export const manualDailyReports: ManualDailyReport[] = [
   // June 2026 (Latest)
+  { date: "Jun 29, 2026", impressions: 2433, clicks: 30, revenue: 5.33, ctr: "1.23%", ecpm: "35.89" },
+  { date: "Jun 28, 2026", impressions: 2343, clicks: 34, revenue: 4.77, ctr: "1.45%", ecpm: "30.44" },
   { date: "Jun 27, 2026", impressions: 2458, clicks: 42, revenue: 4.25, ctr: "1.71%", ecpm: "35.18" },
   { date: "Jun 26, 2026", impressions: 2322, clicks: 37, revenue: 3.87, ctr: "1.59%", ecpm: "34.32" },
   { date: "Jun 25, 2026", impressions: 5464, clicks: 165, revenue: 13.98, ctr: "3.02%", ecpm: "53.98" },
