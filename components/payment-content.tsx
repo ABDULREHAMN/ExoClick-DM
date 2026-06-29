@@ -81,9 +81,9 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
     {
       id: "pm-2",
       type: "crypto",
-      accountHolderName: "Abdul Rehman",
-      email: "abdul.rehman.soashraf@gmail.com",
-      cryptoType: "USDT (BEP20)",
+      accountHolderName: "CryptoActive",
+      email: "TRC20",
+      cryptoType: "USDT (TRC20)",
       walletAddress: "0xdd12eef31367532ac6f7c9b1b1115a56cebf0964",
       status: "Active",
       isDefault: false,
