@@ -42,15 +42,15 @@ export interface ManualDailyReport {
  * Do NOT calculate or derive these values
  */
 export const manualDashboard: ManualDashboardValues = {
-  thisMonth: 1260.24,
+  thisMonth: 65.83,
   lastMonth: 8617.56,
   last3Months: 0.0,
-  last6Months: 22218.19,
-  thisYear: 22218.19,
-  allTime: 22218.19,
-  availableBalance: 70.60,
+  last6Months: 22284.02,
+  thisYear: 22284.02,
+  allTime: 22284.02,
+  availableBalance: 150.33,
   pendingBalance: 1960.00,
-  totalEarnings: 22218.19,
+  totalEarnings: 22284.02,
   nextWithdrawalDate: "29-06-2026",
 }
 
