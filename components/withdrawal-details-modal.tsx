@@ -151,22 +151,22 @@ This invoice is digitally signed and verified.
     {
       step: "Withdrawal Requested",
       status: "Completed",
-      date: withdrawal?.date,
+      date: "29 Jun 2026",
     },
     {
       step: "Under Review",
-      status: isCompleted ? "Completed" : "Pending",
-      date: null,
+      status: "Completed",
+      date: "10 Jul 2026",
     },
     {
       step: "Sent to Wallet",
-      status: isCompleted ? "Completed" : "Pending",
-      date: null,
+      status: "Completed",
+      date: "13 Jul 2026",
     },
     {
       step: "Funds Received",
-      status: isCompleted ? "Completed" : "Pending",
-      date: isCompleted ? withdrawal.completedDate : null,
+      status: "Pending",
+      date: "13-14 Jul 2026",
     },
   ]
 
