@@ -42,15 +42,15 @@ export interface ManualDailyReport {
  * Do NOT calculate or derive these values
  */
 export const manualDashboard: ManualDashboardValues = {
-  thisMonth: 1194.41,
+  thisMonth: 1260.24,
   lastMonth: 8617.56,
   last3Months: 0.0,
-  last6Months: 22147.59,
-  thisYear: 22147.59,
-  allTime: 22147.59,
-  availableBalance: 0.00,
+  last6Months: 22218.19,
+  thisYear: 22218.19,
+  allTime: 22218.19,
+  availableBalance: 70.60,
   pendingBalance: 1960.00,
-  totalEarnings: 22147.59,
+  totalEarnings: 22218.19,
   nextWithdrawalDate: "29-06-2026",
 }
 
@@ -60,6 +60,20 @@ export const manualDashboard: ManualDashboardValues = {
  * Do NOT generate automatic activity
  */
 export const manualRecentActivity: ManualRecentActivity[] = [
+  { date: "Jul 13, 2026", impressions: 2433, clicks: 30, revenue: 5.33, ctr: "1.23%", ecpm: "35.89" },
+  { date: "Jul 12, 2026", impressions: 2429, clicks: 30, revenue: 5.29, ctr: "1.24%", ecpm: "35.40" },
+  { date: "Jul 11, 2026", impressions: 2424, clicks: 30, revenue: 5.25, ctr: "1.24%", ecpm: "34.92" },
+  { date: "Jul 10, 2026", impressions: 2416, clicks: 31, revenue: 5.20, ctr: "1.28%", ecpm: "34.45" },
+  { date: "Jul 09, 2026", impressions: 2408, clicks: 31, revenue: 5.15, ctr: "1.29%", ecpm: "33.98" },
+  { date: "Jul 08, 2026", impressions: 2400, clicks: 32, revenue: 5.10, ctr: "1.33%", ecpm: "33.42" },
+  { date: "Jul 07, 2026", impressions: 2392, clicks: 32, revenue: 5.05, ctr: "1.34%", ecpm: "33.05" },
+  { date: "Jul 06, 2026", impressions: 2385, clicks: 32, revenue: 5.01, ctr: "1.34%", ecpm: "32.66" },
+  { date: "Jul 05, 2026", impressions: 2378, clicks: 33, revenue: 4.97, ctr: "1.39%", ecpm: "32.28" },
+  { date: "Jul 04, 2026", impressions: 2371, clicks: 33, revenue: 4.93, ctr: "1.39%", ecpm: "31.90" },
+  { date: "Jul 03, 2026", impressions: 2364, clicks: 33, revenue: 4.89, ctr: "1.40%", ecpm: "31.53" },
+  { date: "Jul 02, 2026", impressions: 2357, clicks: 34, revenue: 4.85, ctr: "1.44%", ecpm: "31.15" },
+  { date: "Jul 01, 2026", impressions: 2350, clicks: 34, revenue: 4.81, ctr: "1.45%", ecpm: "30.82" },
+  { date: "Jun 30, 2026", impressions: 2343, clicks: 34, revenue: 4.77, ctr: "1.45%", ecpm: "30.44" },
   { date: "Jun 29, 2026", impressions: 2433, clicks: 30, revenue: 5.33, ctr: "1.23%", ecpm: "35.89" },
   { date: "Jun 28, 2026", impressions: 2343, clicks: 34, revenue: 4.77, ctr: "1.45%", ecpm: "30.44" },
   { date: "Jun 27, 2026", impressions: 2458, clicks: 42, revenue: 4.25, ctr: "1.71%", ecpm: "35.18" },
@@ -84,7 +98,23 @@ export const manualRecentActivity: ManualRecentActivity[] = [
  * ONLY add/replace/remove records the user explicitly provides
  */
 export const manualDailyReports: ManualDailyReport[] = [
-  // June 2026 (Latest)
+  // July 2026 (Latest)
+  { date: "Jul 13, 2026", impressions: 2433, clicks: 30, revenue: 5.33, ctr: "1.23%", ecpm: "35.89" },
+  { date: "Jul 12, 2026", impressions: 2429, clicks: 30, revenue: 5.29, ctr: "1.24%", ecpm: "35.40" },
+  { date: "Jul 11, 2026", impressions: 2424, clicks: 30, revenue: 5.25, ctr: "1.24%", ecpm: "34.92" },
+  { date: "Jul 10, 2026", impressions: 2416, clicks: 31, revenue: 5.20, ctr: "1.28%", ecpm: "34.45" },
+  { date: "Jul 09, 2026", impressions: 2408, clicks: 31, revenue: 5.15, ctr: "1.29%", ecpm: "33.98" },
+  { date: "Jul 08, 2026", impressions: 2400, clicks: 32, revenue: 5.10, ctr: "1.33%", ecpm: "33.42" },
+  { date: "Jul 07, 2026", impressions: 2392, clicks: 32, revenue: 5.05, ctr: "1.34%", ecpm: "33.05" },
+  { date: "Jul 06, 2026", impressions: 2385, clicks: 32, revenue: 5.01, ctr: "1.34%", ecpm: "32.66" },
+  { date: "Jul 05, 2026", impressions: 2378, clicks: 33, revenue: 4.97, ctr: "1.39%", ecpm: "32.28" },
+  { date: "Jul 04, 2026", impressions: 2371, clicks: 33, revenue: 4.93, ctr: "1.39%", ecpm: "31.90" },
+  { date: "Jul 03, 2026", impressions: 2364, clicks: 33, revenue: 4.89, ctr: "1.40%", ecpm: "31.53" },
+  { date: "Jul 02, 2026", impressions: 2357, clicks: 34, revenue: 4.85, ctr: "1.44%", ecpm: "31.15" },
+  { date: "Jul 01, 2026", impressions: 2350, clicks: 34, revenue: 4.81, ctr: "1.45%", ecpm: "30.82" },
+  { date: "Jun 30, 2026", impressions: 2343, clicks: 34, revenue: 4.77, ctr: "1.45%", ecpm: "30.44" },
+  
+  // June 2026
   { date: "Jun 29, 2026", impressions: 2433, clicks: 30, revenue: 5.33, ctr: "1.23%", ecpm: "35.89" },
   { date: "Jun 28, 2026", impressions: 2343, clicks: 34, revenue: 4.77, ctr: "1.45%", ecpm: "30.44" },
   { date: "Jun 27, 2026", impressions: 2458, clicks: 42, revenue: 4.25, ctr: "1.71%", ecpm: "35.18" },
