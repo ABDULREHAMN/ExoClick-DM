@@ -165,8 +165,8 @@ This invoice is digitally signed and verified.
     },
     {
       step: "Funds Received",
-      status: "Pending",
-      date: "13-14 Jul 2026",
+      status: "Completed",
+      date: "14 Jul 2026",
     },
   ]
 
