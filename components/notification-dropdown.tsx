@@ -51,14 +51,6 @@ export function NotificationDropdown() {
     if (!persistent) {
       markAsRead(id)
     }
-
-    // Handle withdrawal success notification click
-    if (id === "withdrawal-successful-july13") {
-      // Show withdrawal details popup
-      alert(
-        `🎉 Withdrawal Confirmed!\n\nTransaction ID: #TX-CR18187-JULY12\nStatus: Confirmed\nWallet: 0xb9cE52416d589bCe1AdCd02021BAe4D14202706B\nConfirmation Time: July 13, 2025 at 2:45 PM\n\n✅ Your withdrawal has been successfully processed!`,
-      )
-    }
   }
 
   const handleDropdownOpen = (open: boolean) => {
