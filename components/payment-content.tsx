@@ -28,8 +28,6 @@ import { Label } from "@/components/ui/label"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { PaymentSlip } from "@/components/payment-slip"
-import { calculatePaymentSlip, reviewSteps, trafficReview } from "@/lib/traffic-review-data"
 import { Checkbox } from "@/components/ui/checkbox"
 import { useKyc } from "@/components/kyc-context"
 import { KycPromptModal } from "./kyc-prompt-modal"
@@ -562,46 +560,6 @@ Generated on: ${new Date().toLocaleDateString()}
                     <p className="text-2xl font-bold text-green-600">${availableBalance.toFixed(2)}</p>
                   </div>
                   <Wallet className="text-green-600" size={32} />
-                </div>
-              </Card>
-
-              {/* Review Status Section */}
-              <Card className="p-6 bg-blue-50 border-blue-200">
-                <div className="space-y-4">
-                  <div>
-                    <h3 className="text-lg font-medium text-blue-900 mb-3">Traffic Review Status</h3>
-                    <div className="space-y-2">
-                      {reviewSteps.map((step) => (
-                        <div key={step.id} className="flex items-center space-x-3">
-                          <div
-                            className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-medium ${
-                              step.status === "Completed"
-                                ? "bg-green-500 text-white"
-                                : "bg-gray-300 text-gray-600"
-                            }`}
-                          >
-                            {step.status === "Completed" ? <Check size={14} /> : step.step}
-                          </div>
-                          <span className={step.status === "Completed" ? "text-gray-700" : "text-gray-500"}>
-                            {step.title}
-                          </span>
-                          <span
-                            className={`text-xs font-medium ${
-                              step.status === "Completed"
-                                ? "text-green-700 bg-green-100 px-2 py-0.5 rounded"
-                                : "text-yellow-700 bg-yellow-100 px-2 py-0.5 rounded"
-                            }`}
-                          >
-                            {step.status}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="border-t pt-4 mt-4">
-                    <p className="text-sm text-gray-600 mb-3">Invalid Traffic Rate: {trafficReview.invalidTrafficRate}% | Tax Rate: {trafficReview.taxRate}%</p>
-                    <PaymentSlip grossRevenue={availableBalance} showBreakdown={true} />
-                  </div>
                 </div>
               </Card>
 
