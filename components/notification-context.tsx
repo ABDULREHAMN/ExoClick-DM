@@ -389,16 +389,7 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
       type: "success",
       icon: "🔔",
     },
-    {
-      id: "withdrawal-successful-july13",
-      title: "🎉 Withdrawal Successful",
-      message:
-        "Congratulations! Your pending crypto withdrawal of $18,187.42 on July 12, 2025 has been successfully processed and confirmed.",
-      timestamp: new Date("2025-07-13T14:45:00"), // July 13, 2025 at 2:45 PM
-      isRead: false,
-      type: "success",
-      icon: "✅",
-    },
+
     {
       id: "july-12-earnings",
       title: "Daily Earnings Added",
