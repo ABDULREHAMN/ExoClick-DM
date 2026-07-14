@@ -3,7 +3,13 @@
  * All dashboard values are manually controlled. No automatic calculations.
  * Only update the exact fields specified by the user.
  * User values always have highest priority.
+ * 
+ * AUTOMATIC DAILY RECORDS
+ * New zero-valued daily records are automatically created at 00:00 each day.
+ * Use daily-record-manager.ts utilities to manage automatic record creation.
  */
+
+import { ensureTodayRecordExists } from './daily-record-manager'
 
 export interface ManualDashboardValues {
   thisMonth: number
