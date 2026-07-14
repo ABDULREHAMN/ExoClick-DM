@@ -239,10 +239,9 @@ export function PaymentContent({ onNavigate }: PaymentContentProps) {
           date: "29 Jun 2026",
           method: "Crypto Wallet (BEP20)",
           amount: "$1,960.00",
-          status: "Pending" as const,
+          status: "Completed" as const,
           details: "0xdd12eef31367532ac6f7c9b1b1115a56cebf0964",
-          estimatedProcessingTime: "10-12 Days",
-          expectedCompletion: "09 Jul 2026 - 11 Jul 2026",
+          completedDate: "10 Jul 2026",
         },
       ]
       setWithdrawalHistory(initialHistory)

@@ -12,9 +12,10 @@ export function WithdrawalHistory() {
       date: "29 Jun 2026",
       method: "Crypto Wallet (BEP20)",
       amount: 1960.00,
-      status: "scheduled",
+      status: "withdrawn",
       details: "0xdd12eef31367532ac6f7c9b1b1115a56cebf0964",
       isVerified: true,
+      completedDate: "10 Jul 2026",
     },
     {
       date: "12 Oct 2025",
